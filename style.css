@@ -15,10 +15,15 @@ body {
     color: var(--text-dark);
 }
 
-/* Navigation */
+/* Navigation Styles */
 .navbar {
     background-color: var(--primary-color) !important;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    padding: 1rem 0;
+}
+
+.navbar-nav {
+    align-items: center;
 }
 
 .nav-link {
@@ -41,6 +46,55 @@ body {
 .nav-link:hover::after {
     width: 100%;
     left: 0;
+}
+
+/* Mobile Navigation Styles */
+@media (max-width: 991px) {
+    .navbar-collapse {
+        background-color: var(--primary-color);
+        padding: 1rem 0;
+        border-radius: 0 0 10px 10px;
+    }
+
+    .navbar-nav {
+        width: 100%;
+        align-items: start;
+    }
+
+    .nav-item {
+        width: 100%;
+        text-align: left;
+        padding: 0.5rem 0;
+    }
+
+    .nav-link {
+        padding: 0.5rem 1.5rem !important;
+        display: block;
+        width: 100%;
+    }
+
+    .nav-link::after {
+        display: none;
+    }
+
+    .nav-link:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    .navbar-toggler {
+        border: none;
+        padding: 0.5rem;
+    }
+
+    .navbar-toggler:focus {
+        box-shadow: none;
+        outline: none;
+    }
+
+    .navbar-toggler-icon {
+        width: 1.5em;
+        height: 1.5em;
+    }
 }
 
 /* Hero Section */
@@ -66,50 +120,138 @@ body {
     color: rgba(255, 255, 255, 0.9);
 }
 
+/* Typed Text Effect */
+.typed-wrapper {
+    font-size: 1.5rem;
+    color: #fff;
+    margin: 1rem 0;
+}
+
+.typed-intro {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.typed-text {
+    color: var(--secondary-color);
+    font-weight: 600;
+}
+
+/* Enhanced Hero Image */
+.hero-image-wrapper {
+    position: relative;
+    padding: 2rem;
+}
+
+.hero-image-container {
+    position: relative;
+    z-index: 2;
+}
+
 .hero-image {
     width: 100%;
     max-width: 400px;
     height: auto;
     border-radius: 20px;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
     animation: floatAnimation 6s ease-in-out infinite;
 }
 
+/* Enhanced Buttons */
 .hero-buttons {
     display: flex;
-    gap: 1rem;
-    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin: 2rem 0;
 }
 
-/* CTA Buttons */
-.btn-custom-primary {
-    background-color: var(--cta-color);
-    color: var(--text-dark);
-    border: none;
-    padding: 0.8rem 1.5rem;
+.btn-custom-primary,
+.btn-custom-secondary {
+    position: relative;
+    overflow: hidden;
+    padding: 1rem 2rem;
     border-radius: 50px;
     transition: all 0.3s ease;
+}
+
+.btn-content {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.btn-custom-primary {
+    background: linear-gradient(45deg, var(--cta-color), var(--secondary-color));
+    border: none;
 }
 
 .btn-custom-primary:hover {
-    background-color: #FF8C61;
-    transform: translateY(-2px);
-    color: var(--text-dark);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
 }
 
 .btn-custom-secondary {
-    background-color: transparent;
-    color: var(--text-light);
+    background: transparent;
     border: 2px solid var(--text-light);
-    padding: 0.8rem 1.5rem;
-    border-radius: 50px;
-    transition: all 0.3s ease;
+    color: var(--text-light);
 }
 
 .btn-custom-secondary:hover {
-    background-color: var(--text-light);
+    background: var(--text-light);
     color: var(--primary-color);
-    transform: translateY(-2px);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+/* Floating Tech Cards */
+.floating-cards {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.tech-card {
+    position: absolute;
+    padding: 0.8rem;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: white;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.tech-card i {
+    font-size: 1.2rem;
+}
+
+.tech-card.html {
+    top: 10%;
+    left: 0;
+    animation: float 6s ease-in-out infinite;
+}
+
+.tech-card.css {
+    top: 20%;
+    right: 0;
+    animation: float 6s ease-in-out infinite 1s;
+}
+
+.tech-card.js {
+    bottom: 20%;
+    left: 0;
+    animation: float 6s ease-in-out infinite 2s;
+}
+
+.tech-card.react {
+    bottom: 10%;
+    right: 0;
+    animation: float 6s ease-in-out infinite 3s;
 }
 
 /* Section Titles */
@@ -249,6 +391,53 @@ body {
     margin: 0;
 }
 
+/* Certification Section Styles */
+.certification-item {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 1rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.certification-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.certification-icon i {
+    font-size: 1.5rem;
+}
+
+.btn-link .fa-external-link-alt {
+    font-size: 1.1rem;
+    transition: transform 0.3s ease;
+}
+
+.btn-link:hover .fa-external-link-alt {
+    transform: scale(1.1);
+}
+
+/* Certificate Modal Styles */
+.certificate-preview {
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.modal-content {
+    border: none;
+    border-radius: 12px;
+}
+
+.modal-header {
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+    padding: 1rem 1.5rem;
+}
+
+.modal-body {
+    padding: 1.5rem;
+}
+
 /* Project Section */
 .project-card {
     background: white;
@@ -270,14 +459,14 @@ body {
 
 .project-card img {
     width: 100%;
-    height: 260px;
+    height: 270px;
     object-fit: cover;
     border-radius: 8px;
 }
 
 /* Swiper Styles */
 .container.position-relative {
-    padding-bottom: 15px;
+    padding-bottom: 10px;
 }
 
 .project-swiper,
@@ -285,23 +474,30 @@ body {
     position: relative;
 }
 
+/* Styling untuk tombol navigasi agar lebih terlihat */
 .swiper-button-next,
 .swiper-button-prev {
-    color: #333;
-    transform: scale(0.7);
+    color: #fff; /* Ubah warna agar lebih kontras */
+    transform: scale(1); /* Perbesar ukurannya */
+    background: rgba(0, 0, 0, 0.5); /* Tambahkan latar belakang semi-transparan */
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.swiper-button-next {
-    right: 5px;
-}
-
-.swiper-button-prev {
-    left: 5px;
+/* Tambahkan efek hover agar lebih interaktif */
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+    background: rgba(0, 0, 0, 0.8);
 }
 
 .swiper-button-next:after,
 .swiper-button-prev:after {
-    font-size: 24px;
+    font-size: 28px; /* Perbesar ikon panah */
+    font-weight: bold;
 }
 
 .swiper-pagination {
@@ -316,6 +512,7 @@ body {
 
 .swiper-pagination-bullet-active {
     opacity: 1;
+    background: #ff6b6b; /* Warna yang lebih menarik untuk indikator aktif */
 }
 
 /* Contact Section */
@@ -331,6 +528,74 @@ body {
     backdrop-filter: blur(5px);
 }
 
+.activity-gallery {
+    margin-bottom: 2rem;
+}
+
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.gallery-item:hover {
+    transform: scale(1.02);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 200px; /* Sesuaikan tinggi yang diinginkan */
+    object-fit: cover;
+}
+
+/* Styling untuk modal */
+.modal-dialog-centered {
+    display: flex;
+    align-items: center;
+    min-height: calc(100% - 1rem);
+}
+
+.modal-content {
+    background-color: #fff;
+    border-radius: 8px;
+}
+
+.modal-body img {
+    width: 100%;
+    border-radius: 4px;
+}
+
+/* Social Links */
+.social-links {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+a {
+    text-decoration: none;
+}
+
+.social-link {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+}
+
+.social-link:hover {
+    background: var(--secondary-color);
+    transform: translateY(-3px);
+    color: white;
+}
+
 /* Animations */
 @keyframes fadeInUp {
     from {
@@ -343,7 +608,14 @@ body {
     }
 }
 
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+
 @keyframes floatAnimation {
+    0%, 100% { transform: translateY(0) rotate(0); }
+    50% { transform: translateY(-20px) rotate(2deg); }
     0% { transform: translateY(0); }
     50% { transform: translateY(-10px); }
     100% { transform: translateY(0); }
@@ -434,5 +706,73 @@ body {
 
     .hero-image {
         max-width: 250px;
+    }
+}
+
+
+@media (max-width: 768px) {
+    .certification-item {
+        padding: 0.75rem;
+    }
+    
+    .certification-icon i {
+        font-size: 1.25rem;
+    }
+    
+    .btn-link .fa-external-link-alt {
+        font-size: 1rem;
+    }
+}
+
+/* Responsive Styles */
+@media (max-width: 991px) {
+    .hero-section {
+        padding: 4rem 0;
+    }
+    
+    .glitch-text {
+        font-size: 2.5rem;
+    }
+    
+    .hero-content {
+        text-align: center;
+        margin-bottom: 3rem;
+    }
+    
+    .hero-buttons {
+        justify-content: center;
+    }
+    
+    .social-links {
+        justify-content: center;
+    }
+    
+    .hero-image-wrapper {
+        padding: 1rem;
+    }
+    
+    .tech-card {
+        display: none;
+    }
+}
+
+@media (max-width: 576px) {
+    .glitch-text {
+        font-size: 2rem;
+    }
+    
+    .typed-wrapper {
+        font-size: 1.2rem;
+    }
+    
+    .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .btn-custom-primary,
+    .btn-custom-secondary {
+        width: 100%;
+        max-width: 280px;
     }
 }

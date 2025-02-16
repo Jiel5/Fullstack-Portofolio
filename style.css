@@ -254,6 +254,20 @@ body {
     animation: float 6s ease-in-out infinite 3s;
 }
 
+.tech-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.tech-badge {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+}
+
 /* Section Titles */
 .section-title {
     font-size: 2.2rem;
@@ -464,6 +478,7 @@ body {
     border-radius: 8px;
 }
 
+
 /* Swiper Styles */
 .container.position-relative {
     padding-bottom: 10px;
@@ -513,6 +528,10 @@ body {
 .swiper-pagination-bullet-active {
     opacity: 1;
     background: #ff6b6b; /* Warna yang lebih menarik untuk indikator aktif */
+}
+
+.swiper-slide {
+    height: auto;
 }
 
 /* Contact Section */
@@ -596,6 +615,13 @@ a {
     color: white;
 }
 
+.project-card img {
+    width: 100%;
+    height: auto;
+    object-fit: cover; /* Memastikan gambar tetap rapi */
+}
+
+
 /* Animations */
 @keyframes fadeInUp {
     from {
@@ -627,23 +653,21 @@ a {
         min-height: auto;
         padding: 4rem 0;
     }
-
     .hero-content {
         text-align: center;
-        margin-bottom: 2rem;
+        margin-bottom: 3rem;
     }
-
-    .hero-content h1 {
+    .hero-content h1, .glitch-text {
         font-size: 2.5rem;
     }
-
-    .hero-buttons {
+    .hero-buttons, .social-links {
         justify-content: center;
     }
-
-    .hero-image {
-        max-width: 300px;
-        margin: 0 auto;
+    .hero-image-wrapper {
+        padding: 1rem;
+    }
+    .tech-card {
+        display: none;
     }
 }
 
@@ -651,128 +675,60 @@ a {
     .hero-section {
         padding: 3rem 0;
     }
-    
     .section-title {
         font-size: 2rem;
         margin-bottom: 1.5rem;
     }
-    
-    .about-content, 
-    .education-content, 
-    .skills-card,
-    .certificates-card {
+    .about-content, .education-content, .skills-card, .certificates-card {
         margin-bottom: 1rem;
         padding: 1rem;
     }
-    
     .skills-card {
         padding: 1.25rem;
     }
-    
-    .skill-category {
+    .skill-category, .certification-item {
         margin-bottom: 1rem;
     }
-    
-    .certification-item {
-        padding: 0.75rem 0;
+    .certification-item, .certificates-swiper {
+        padding: 15px;
     }
-
-    .certificates-swiper {
-        padding: 15px 35px 35px 35px;
-    }
-}
-
-@media (max-width: 576px) {
-    .hero-content h1 {
-        font-size: 2rem;
-    }
-
-    .hero-content p {
-        font-size: 1rem;
-    }
-
-    .hero-buttons {
-        flex-direction: column;
-        width: 100%;
-        max-width: 280px;
-        margin: 0 auto;
-    }
-
-    .btn-custom-primary,
-    .btn-custom-secondary {
-        width: 100%;
-        text-align: center;
-    }
-
-    .hero-image {
-        max-width: 250px;
-    }
-}
-
-
-@media (max-width: 768px) {
-    .certification-item {
-        padding: 0.75rem;
-    }
-    
     .certification-icon i {
         font-size: 1.25rem;
     }
-    
     .btn-link .fa-external-link-alt {
         font-size: 1rem;
     }
-}
-
-/* Responsive Styles */
-@media (max-width: 991px) {
-    .hero-section {
-        padding: 4rem 0;
+    .project-card h3 {
+        font-size: 1.1rem;
     }
-    
-    .glitch-text {
-        font-size: 2.5rem;
+    .project-card p {
+        font-size: 0.9rem;
     }
-    
-    .hero-content {
-        text-align: center;
-        margin-bottom: 3rem;
-    }
-    
-    .hero-buttons {
-        justify-content: center;
-    }
-    
-    .social-links {
-        justify-content: center;
-    }
-    
-    .hero-image-wrapper {
-        padding: 1rem;
-    }
-    
-    .tech-card {
-        display: none;
+    .tech-badge {
+        font-size: 0.8rem;
     }
 }
 
 @media (max-width: 576px) {
-    .glitch-text {
+    .hero-content h1, .glitch-text {
         font-size: 2rem;
     }
-    
-    .typed-wrapper {
-        font-size: 1.2rem;
+    .hero-content p, .typed-wrapper {
+        font-size: 1rem;
     }
-    
     .hero-buttons {
         flex-direction: column;
         align-items: center;
-    }
-    
-    .btn-custom-primary,
-    .btn-custom-secondary {
-        width: 100%;
         max-width: 280px;
+        margin: 0 auto;
+    }
+    .btn-custom-primary, .btn-custom-secondary {
+        width: 100%;
+    }
+    .hero-image {
+        max-width: 250px;
+    }
+    .project-card .card-body {
+        padding: 1rem;
     }
 }
